@@ -1,0 +1,75 @@
+SMART BUS TICKET BOOKING SYSTEM - PRACTICAL TEST CASES
+
+Run the program with: python main.py
+
+1. Show all routes
+   Input: 1, then 8
+   Expected: All five route IDs (R101-R105), cities, times, fares, capacities,
+   availability, and "Available" status are shown; then the program exits.
+
+2. Search using a route ID
+   Input: 2, R104
+   Expected: Only the Karachi-to-Lahore route is displayed.
+
+3. Search using a departure city
+   Input: 2, Karachi
+   Expected: R101, R102, and R104 are displayed.
+
+4. Search using a destination city with different letter case
+   Input: 2, hYdErAbAd
+   Expected: R101 and R105 are displayed.
+
+5. Reject an invalid route
+   Input: 3, R999
+   Expected: A clear route ID error is shown, and no seats or bookings change.
+
+6. Reject a non-numeric age
+   Input: 3, R101, Ali, abc
+   Expected: A whole-number age error is shown; no booking is created and
+   R101 remains at 40 available seats.
+
+7. Reject a blank name and invalid seat count
+   Try booking R101 with a blank name; then try again with age 20 and seat
+   count 0.
+   Expected: Each attempt displays an error; no booking is created and seat
+   availability is unchanged.
+
+8. Book seats and calculate fare
+   Input: 3, R101, Ali Khan, 20, 2
+   Expected: A unique booking ID is shown, total fare is Rs. 2400, and R101
+   changes from 40 to 38 available seats.
+
+9. Reject a booking exceeding availability
+   Input: 3, R101, Sana, 25, 39 (after test 8)
+   Expected: An error says only 38 seats are available. No booking is added
+   and R101 stays at 38 available seats.
+
+10. Show booking history and report
+    Input: 5, then 6 (after test 8)
+    Expected: History shows the booking as Confirmed. The report shows
+    1 total booking, 1 confirmed, 0 cancelled, 2 reserved seats, and
+    Rs. 2400 confirmed revenue.
+
+11. Cancel a booking and restore seats
+    Input: 4, enter the booking ID from test 8
+    Expected: The booking becomes Cancelled and R101 returns to 40 available
+    seats. The report shows 0 confirmed bookings, 1 cancelled, 0 reserved
+    seats, and Rs. 0 confirmed revenue.
+
+12. Prevent cancelling the same booking twice
+    Input: 4, enter the same booking ID again
+    Expected: A clear already-cancelled error is shown; seats remain 40.
+
+13. Display grouped schedule
+    Input: 7
+    Expected: Routes are listed beneath Karachi, Hyderabad, Sukkur, Mirpur
+    Khas, and Lahore. Cities without departures have a clear message.
+
+14. Reject an invalid menu choice
+    Input: x
+    Expected: A clear menu-number error is shown and the main menu appears
+    again.
+
+15. Exit
+    Input: 8
+    Expected: A thank-you message appears and the program stops.
